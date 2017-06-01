@@ -45,33 +45,4 @@
             android:text="@string/questionsCorrectly" />
     </LinearLayout>
 
-    <LinearLayout style="@style/resultActivity_landCol">
-
-        <Button
-            android:id="@+id/btnMoreQuestions"
-            style="@style/resultsButton"
-            android:onClick="onClickAction"
-            android:tag="MORE_QUESTIONS"
-            android:text="@string/btnMoreQuestions" />
-
-        <Button
-            android:id="@+id/btnOptions"
-            style="@style/resultsButton"
-            android:onClick="onClickAction"
-            android:tag="OPTIONS"
-            android:text="@string/btnOptions" />
-
-        <Button
-            android:id="@+id/btnQuit"
-            style="@style/resultsButton"
-            android:onClick="onClickAction"
-            android:tag="QUIT"
-            android:text="@string/btnQuit" />
-
-    </LinearLayout>
-    <!--
-    TODO : perhaps some stats like total questions
-    total unique questions
-    Average score
-    -->
 </LinearLayout>

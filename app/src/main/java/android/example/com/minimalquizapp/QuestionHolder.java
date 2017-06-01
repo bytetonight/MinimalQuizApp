@@ -30,18 +30,14 @@ import java.util.List;
 
 public class QuestionHolder {
     private static List<BaseQuestion> questions = new ArrayList<>();
-    private static Context context;
 
-    public static void setContext(Context c) {
-        context = c;
-    }
-    public static List<BaseQuestion> getQuestions() {
+    public static List<BaseQuestion> getQuestions(Context context) {
         if (context == null)
             return null;
         String question;
         String answer;
         List<IntStringPair> answers;
-
+        questions.clear();
         //Checkboxes
         question = context.getString(R.string.q1);
         answers = new ArrayList<>();

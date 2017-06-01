@@ -62,17 +62,18 @@ public class UdacityQuizRequirementsActivity extends AppCompatActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_udacity_requirements);
-        QuestionHolder.setContext(this);
-        questions = QuestionHolder.getQuestions();
+        questions = QuestionHolder.getQuestions(this);
 
         if (savedInstanceState != null) {
             currentQuestionIndex = savedInstanceState.getInt(KEY_QUESTION_INDEX);
             playerScore = savedInstanceState.getInt(KEY_PLAYER_SCORE);
             currentQnA = questions.get(currentQuestionIndex);
         }
-
-        if (savedInstanceState == null)
+        else {
+            currentQuestionIndex = 0;
+            playerScore = 0;
             switchQuizFragment();
+        }
 
     }
 

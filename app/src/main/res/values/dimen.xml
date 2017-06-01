@@ -31,6 +31,4 @@
     <item name="resultMsgAlpha" format="float" type="dimen">0.5</item>
 
     <dimen name="listViewItemPadding">4dp</dimen>
-    <dimen name="listViewItemImage">50dp</dimen>
-    <!--<dimen name="animDuration">400</dimen>-->
 </resources>

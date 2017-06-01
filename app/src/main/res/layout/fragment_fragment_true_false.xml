@@ -27,12 +27,12 @@
         <RadioButton
             android:id="@+id/radioBtn1"
             style="@style/radio_button_answer"
-            android:text="Option 1" />
+            tools:text="Option 1" />
 
         <RadioButton
             android:id="@+id/radioBtn2"
             style="@style/radio_button_answer"
-            android:text="Option 2" />
+            tools:text="Option 2" />
 
 
     </LinearLayout>
