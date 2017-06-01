@@ -12,12 +12,14 @@
 package android.example.com.minimalquizapp.validation;
 
 import android.content.Context;
+import android.example.com.minimalquizapp.IntStringPair;
 import android.example.com.minimalquizapp.R;
 import android.example.com.minimalquizapp.interfaces.ManyOfManyResponse;
 import android.example.com.minimalquizapp.validation.interfaces.HashMapValidator;
 
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by ByteTonight on 30.05.2017.
@@ -40,20 +42,29 @@ public class MultipleResponseValidator implements HashMapValidator {
         message = new StringBuilder();
         String and = "";
         String aaand = context.getString(R.string.and);
-        int hits = 0;
-        for (String correctAnswer : currentQnA.getCorrectAnswers()) {
-            if (!answersMap.containsValue(correctAnswer)) {
-                hasError = true;
+
+        //Amount of user submitted answers matches correct answers ?
+        if (answersMap.size() == currentQnA.getCorrectAnswers().size()) {
+            //Check if everything in the user submitted map is correct
+            for (Map.Entry<String, String> entry : answersMap.entrySet()) {
+                String value = entry.getValue();
+                if (!currentQnA.getCorrectAnswers().contains(value)) {
+                    // something was submitted that is not in getCorrectAnswers
+                    hasError = true;
+                }
+            }
+        } else {
+            hasError = true;
+        }
+
+        if (hasError) {
+            for (String correctAnswer : currentQnA.getCorrectAnswers()) {
                 message.append(and);
                 message.append(correctAnswer);
                 message.append("\n");
                 and = aaand;
-            } else {
-                ++hits;
             }
         }
-        if (hasError && hits > 0)
-            message.append(context.getString(R.string.additionally));
         return !hasError;
     }
 
