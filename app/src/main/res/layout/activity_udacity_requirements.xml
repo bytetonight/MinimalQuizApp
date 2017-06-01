@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Open Trivia QuizApp is a Udacity EU-Scholarship Project
+  ~ written by Thorsten Itter, Copyright (c) 2017.
+  ~ This Software may be used solely for non-profit educational purposes
+  ~ unless specified otherwise by the original author Thorsten Itter
+  ~ Questions and answers provided by Open Trivia Database
+  ~ through a free for commercial use API maintained by PIXELTAIL GAME
+  ~ This source code including this header may not be modified
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    style="@style/mainLayout"
+    tools:context="android.example.com.minimalquizapp.UdacityQuizRequirementsActivity">
+
+    <LinearLayout style="@style/mainActLinearContainer">
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/ProgressBar.Horizontal" />
+
+        <TextView
+            android:id="@+id/tvCurrentCategory"
+            style="@style/currentCategory" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            style="@style/fragment_container"></FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--http://www.softicons.com/game-icons/brain-games-icons-by-quizanswers/quiz-games-icon-->

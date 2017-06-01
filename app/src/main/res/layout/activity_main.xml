@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    style="@style/startActivity">
+
+    <ImageView
+        style="@style/startActivityImage"
+        android:contentDescription="@string/trivia" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/startActivityTopButtonContainer">
+
+        <Button
+            android:id="@+id/btnStartQuiz"
+            style="@style/resultsButton"
+            android:text="@string/start_quiz" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

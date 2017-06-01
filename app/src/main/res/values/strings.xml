@@ -1,0 +1,92 @@
+<!--
+  ~ Open Trivia QuizApp is a Udacity EU-Scholarship Project
+  ~ written by Thorsten Itter, Copyright (c) 2017.
+  ~ This Software may be used solely for non-profit educational purposes
+  ~ unless specified otherwise by the original author Thorsten Itter
+  ~ Questions and answers provided by Open Trivia Database
+  ~ through a free for commercial use API maintained by PIXELTAIL GAME
+  ~ This source code including this header may not be modified
+  ~
+  -->
+
+<resources>
+    <string name="app_name">Open Trivia</string>
+    <string name="start_quiz">Start Quiz</string>
+    <string name="sessionToken">sessionToken</string>
+    <string name="select_a_category">Select a Category</string>
+    <string name="req_session_token">Requesting Session Token</string>
+    <string name="req_questions">Loading Questions&#8230;</string>
+    <string name="btnDisplayMcFragment">Display Multiple Choice Fragment</string>
+    <string name="blank_question">### Question not loaded ###</string>
+    <string name="blank_radio_option">Option</string>
+    <string name="submit">Submit</string>
+    <string name="correctAnswerTitle">The correct answer is:</string>
+    <!--<string name="incorrectMessage"><![CDATA[The correct answer would have been:\n<b>%1$s</b>]]></string>-->
+    <string name="scoreMessage">You answered %1$d out of %2$d questions <b>correctly</b>.</string>
+    <string name="no_selection">Please select an Option</string>
+    <string name="no_answer">Please enter an Answer</string>
+    <string name="any_category">Random Category</string>
+    <string name="optionsDifficulty">Difficulty</string>
+
+    <string name="menu_category_select">Choose Category</string>
+    <string name="currentCategoryBlank">The Category</string>
+
+    <string name="ok">OK</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="answer_option_1">Option 1</string>
+    <string name="answer_option_2">Option 2</string>
+    <string name="answer_option_3">Option 3</string>
+    <string name="answer_option_4">Option 4</string>
+
+    <string name="resultsHeader">Congratulations!</string>
+    <string name="youAnswered">You answered</string>
+    <string name="ofAmount">of %1$d</string>
+    <string name="questionsCorrectly">questions correctly</string>
+    <string name="fakeResult">10</string>
+    <string name="btnMoreQuestions">Try more questions</string>
+    <string name="btnOptions">Options</string>
+    <string name="btnQuit">Quit</string>
+
+    <string name="score_perfect">Perfect !</string>
+    <string name="score_awesome">Awesome !</string>
+    <string name="score_congrats">Congratulations !</string>
+    <string name="score_wellDone">Well done !</string>
+    <string name="score_nice">Nice !</string>
+    <string name="score_notBad">Not bad !</string>
+    <string name="score_oops">Oops !</string>
+
+    <string name="error_header">Please excuse</string>
+    <string name="error_timeout">Failed to connect to Server after %1$d seconds.\nPlease check your connection and/or try again later.</string>
+    <string name="error_maxQuestions_exceeded">
+        Unfortunately the Database does not contain %1$s questions matching your Filters.
+        %2$s
+        Please use less restrictive options, for example Difficulty : any, and/or less questions.
+    </string>
+    <string name="textView">textView</string>
+
+    <string name="label_QuizActivity">Quiz</string>
+    <string name="label_OptionsActivity">Options</string>
+    <string name="label_CategorySelectionActivity">Categories</string>
+    <string name="label_ResultsActivity">Results</string>
+    <string name="numberOfQuestions">Number of Questions</string>
+
+
+    <string-array name="array_difficulty">
+        <item>any</item>
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
+    </string-array>
+
+    <string name="and">and\n</string>
+    <string name="additionally">additionally</string>
+    <string name="preference_file_key">b3Dash8LL</string>
+    <string name="free_text_hint">Your Answer here</string>
+
+    <string name="start_static_quiz">Udacity Required</string>
+    <string name="trivia">trivia</string>
+    <string name="category_icon">category icon</string>
+    <string name="extra_activity_label">Hmmpf</string>
+    <string name="toast_score">Current score:</string>
+    <string name="toast_score_delimiter">/</string>
+</resources>

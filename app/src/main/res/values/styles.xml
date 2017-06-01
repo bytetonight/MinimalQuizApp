@@ -1,0 +1,405 @@
+<!--
+  ~ Open Trivia QuizApp is a Udacity EU-Scholarship Project
+  ~ written by Thorsten Itter, Copyright (c) 2017.
+  ~ This Software may be used solely for non-profit educational purposes
+  ~ unless specified otherwise by the original author Thorsten Itter
+  ~ Questions and answers provided by Open Trivia Database
+  ~ through a free for commercial use API maintained by PIXELTAIL GAME
+  ~ This source code including this header may not be modified
+  ~
+  -->
+
+<resources>
+    <!--
+    Some of the styles in this file, partially inherit from other styles almost like CSS.
+    If some base styles are not suitable, they can be overridden where needed
+    -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- For the resting Spinner style -->
+        <item name="android:spinnerItemStyle">
+            @style/spinnerItemStyle
+        </item>
+
+        <!--- Support library compatibility-->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:icon">@mipmap/ic_launcher</item>
+        <item name="android:background">@drawable/gradient_not_rounded</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/gradient_not_rounded</item>
+    </style>
+
+    <style name="MyTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">#FFF</item>
+        <!--<item name="android:textStyle">bold</item>-->
+    </style>
+
+    <!-- Inheritable Commons -->
+    <style name="FullWidthFullHeight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!-- Inheritable Commons -->
+    <style name="FullWidthWrapHeight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Inheritable Commons -->
+    <style name="WrapBoth">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--ProgressBar Styles-->
+    <style name="ProgressBar.Horizontal" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">visible</item>
+        <!-- <item name="android:background">@color/colorAccent</item>-->
+    </style>
+
+    <style name="logo">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="mainLayout" parent="@style/FullWidthFullHeight">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/mainBackgroundColor</item>
+        <!--- Support library compatibility-->
+        <item name="background">@color/mainBackgroundColor</item>
+    </style>
+
+    <style name="buttons" parent="@style/FullWidthWrapHeight">
+        <!-- <item name="android:background">@drawable/someImage</item>-->
+        <item name="android:textColor">@color/buttonText</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_margin">@dimen/btnLayoutMargin</item>
+    </style>
+
+
+    <style name="submitButton" parent="@style/gradientButtonText">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:clipToPadding">true</item>
+        <item name="android:background">@drawable/gradient_button</item>
+        <!--<item name="android:layout_height">match_parent</item>-->
+    </style>
+
+    <!--
+        Jeez in API 23 the behaviour changed and requires explicit enabling the dialog Title ?!?!?
+        Additionally, the DialogFragment had to be converted from Linear to Relative Layout
+        Additionally the parent style for the CustomDialog style has to be set
+        Additionally the style has to be applied to programmatically to the DialogFragment
+        And if any one of the above is missing, you end up with unexplainable CHAOS
+        What a PAIN in the posterior
+    -->
+    <style name="CustomDialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:background">@drawable/textview_container</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/textview_container</item>
+    </style>
+
+    <style name="dialogSubmitButton" parent="@style/gradientButtonText">
+        <item name="android:clipToPadding">true</item>
+        <item name="android:background">@drawable/gradient_button</item>
+        <item name="android:layout_marginBottom">@dimen/margin24dp
+        </item> <!-- causes issues when used in relative layout -->
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin16dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/ok</item>
+    </style>
+
+    <style name="gradientButtonText" parent="@style/FullWidthWrapHeight">
+        <item name="android:minHeight">@dimen/minHeight
+        </item><!-- this one is important for gradient buttons -->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/radioButtonTextSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <!--<item name="android:drawableLeft">@android:drawable/ic_menu_send</item>-->
+    </style>
+
+    <style name="questionBox" parent="@style/FullWidthWrapHeight">
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:textSize">@dimen/questionTextSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">@dimen/fragmentPadding</item>
+        <item name="android:textColor">@color/questionText</item>
+        <item name="android:background">@drawable/textview_container</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/textview_container</item>
+    </style>
+
+    <style name="answer_container_vertical" parent="@style/FullWidthWrapHeight">
+        <item name="android:layout_below">@id/questionBox</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/padding4</item>
+        <item name="android:layout_marginTop">@dimen/answerContainerTopMargin</item>
+        <item name="android:background">@drawable/textview_container</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/textview_container</item>
+    </style>
+
+    <style name="answer_container_horizontal" parent="@style/FullWidthWrapHeight">
+        <item name="android:layout_below">@+id/questionBox</item>
+        <item name="android:orientation">horizontal</item>
+        <!-- <item name="android:layout_marginTop">@dimen/answerContainerTopMargin</item>-->
+        <item name="android:layout_alignParentLeft">true</item>
+        <!--<item name="android:layout_alignParentStart">true</item>-->
+        <item name="android:baselineAligned">false</item>
+        <item name="android:weightSum">2</item>
+    </style>
+
+    <style name="radio_button_answer" parent="@style/FullWidthWrapHeight">
+        <item name="android:textColor">@color/buttonText</item>
+        <item name="android:textSize">@dimen/radioButtonTextSize</item>
+        <item name="android:checked">false</item>
+        <!--<item name="android:layout_gravity">center_vertical</item>-->
+        <!--<item name="android:layout_margin">@dimen/maring5</item>-->
+    </style>
+
+    <style name="fragment_container" parent="@style/FullWidthFullHeight">
+
+    </style>
+
+    <style name="answer_column">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="fragment_multiple_choice_portrait" parent="@style/FullWidthFullHeight">
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/fragmentPadding</item>
+        <!--<item name="android:background">@android:color/holo_blue_dark</item>-->
+
+        <!--<item name="android:background">@android:color/holo_blue_bright</item>-->
+    </style>
+
+    <style name="fragment_multiple_choice_land" parent="@style/FullWidthFullHeight">
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/fragmentPadding</item>
+        <!--<item name="android:background">@android:color/holo_blue_dark</item>-->
+        <!--<item name="android:background">@android:color/holo_blue_bright</item>-->
+    </style>
+
+    <style name="fragment_correct_answer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/textview_container</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/textview_container</item>
+    </style>
+
+    <style name="dialogTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/correctAnswerTitle</item>
+        <item name="android:layout_marginTop">@dimen/margin16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/dialogTextSize</item>
+    </style>
+
+    <style name="dialogAnswer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/margin16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/hello_blank_fragment</item>
+        <item name="android:textSize">@dimen/dialogTextSize</item>
+    </style>
+
+    <style name="currentCategory">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/quizCategoryMargin</item>
+        <item name="android:layout_marginBottom">@dimen/quizCategoryMargin</item>
+        <item name="android:text">@string/currentCategoryBlank</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="mainActLinearContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Results -->
+    <style name="resultsActivity" parent="@style/mainLayout">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">@dimen/padding4</item>
+    </style>
+
+    <style name="resultsActivity_land" parent="@style/mainLayout">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">@dimen/padding4</item>
+        <item name="android:weightSum">2</item>
+    </style>
+
+    <style name="resultActivity_landCol">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="resultsHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/resultsHeader</item>
+    </style>
+
+    <style name="optionsHeader" parent="@style/resultsHeader">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/resultMsg123</item>
+    </style>
+
+    <style name="tvNumberOfQuestions" parent="@style/optionsHeader">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="resultScore">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">@dimen/resultScore</item>
+    </style>
+
+    <style name="resultsMsg1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/resultMsg123</item>
+        <item name="android:alpha">@dimen/resultMsgAlpha</item>
+        <item name="android:layout_marginBottom">@dimen/padding4</item>
+    </style>
+
+    <style name="resultsButton" parent="submitButton">
+        <item name="android:layout_alignParentBottom">false</item>
+        <item name="android:layout_marginTop">@dimen/resultButtonMargin</item>
+    </style>
+
+    <!-- categories -->
+    <style name="category_selection">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/mainBackgroundColor</item>
+        <!--- Support library compatibility-->
+        <item name="background">@color/mainBackgroundColor</item>
+    </style>
+
+    <style name="categories_header">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="categories_listView">
+        <!-- To style a ListView, especially one with a custom Layout ...
+        You have to apply the styles in your ListView layout (template) -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="categories_ListView_Item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">@dimen/listViewItemPadding</item>
+        <item name="android:background">@drawable/textview_container</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/textview_container</item>
+    </style>
+
+
+
+    <style name="categories_ListView_Item_Text_Container" parent="@style/FullWidthFullHeight">
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">@dimen/padding4</item>
+    </style>
+
+    <style name="categories_ListView_Item_Header" parent="@style/FullWidthWrapHeight">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="categories_ListView_Item_Sub" parent="@style/FullWidthWrapHeight">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="startActivity" parent="@style/FullWidthFullHeight">
+        <item name="android:padding">@dimen/fragmentPadding</item>
+        <item name="android:background">@color/startActivityBackGround</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/startActivityBackGround</item>
+    </style>
+
+    <style name="startActivityImage" parent="@style/FullWidthFullHeight">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:src">@drawable/open_trivia</item>
+    </style>
+
+    <style name="startActivityTopButtonContainer" parent="@style/FullWidthWrapHeight">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="quitButton_Start" parent="@style/resultsButton">
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="questionsSeekBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:padding">@dimen/listViewItemPadding</item>
+        <item name="android:textSize">@dimen/resultMsg123</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="optionsSubContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/fragmentPadding</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+</resources>

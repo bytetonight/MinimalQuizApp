@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Open Trivia QuizApp is a Udacity EU-Scholarship Project
+  ~ written by Thorsten Itter, Copyright (c) 2017.
+  ~ This Software may be used solely for non-profit educational purposes
+  ~ unless specified otherwise by the original author Thorsten Itter
+  ~ Questions and answers provided by Open Trivia Database
+  ~ through a free for commercial use API maintained by PIXELTAIL GAME
+  ~ This source code including this header may not be modified
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/results_layout"
+    style="@style/resultsActivity"
+    tools:context="android.example.com.minimalquizapp.ResultsActivity">
+
+
+    <TextView
+        android:id="@+id/resultsHeader"
+        style="@style/resultsHeader"
+        android:text="@string/resultsHeader" />
+
+    <TextView
+        android:id="@+id/resultMsg1"
+        style="@style/resultsMsg1"
+        android:text="@string/youAnswered" />
+
+    <TextView
+        android:id="@+id/resultScore"
+        style="@style/resultScore"
+        tools:text="@string/fakeResult" />
+
+    <TextView
+        android:id="@+id/resultMsg2"
+        style="@style/resultsMsg1"
+        tools:text="@string/ofAmount" />
+
+    <TextView
+        android:id="@+id/resultMsg3"
+        style="@style/resultsMsg1"
+        android:text="@string/questionsCorrectly" />
+
+
+</LinearLayout>

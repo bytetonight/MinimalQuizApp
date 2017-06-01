@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Open Trivia QuizApp is a Udacity EU-Scholarship Project
+  ~ written by Thorsten Itter, Copyright (c) 2017.
+  ~ This Software may be used solely for non-profit educational purposes
+  ~ unless specified otherwise by the original author Thorsten Itter
+  ~ Questions and answers provided by Open Trivia Database
+  ~ through a free for commercial use API maintained by PIXELTAIL GAME
+  ~ This source code including this header may not be modified
+  ~
+  -->
+
+<resources>
+    <dimen name="questionTextSize">16sp</dimen>
+    <dimen name="btnLayoutMargin">0dp</dimen>
+    <dimen name="gradBtnPadding">0dp</dimen>
+    <dimen name="fragmentPadding">8dp</dimen>
+    <dimen name="padding4">4dp</dimen>
+    <dimen name="radioButtonTextSize">16sp</dimen>
+    <dimen name="answerContainerTopMargin">20dp</dimen>
+    <dimen name="quizCategoryMargin">4dp</dimen>
+    <dimen name="margin16dp">16dp</dimen>
+    <dimen name="margin24dp">24dp</dimen>
+    <dimen name="dialogTextSize">20sp</dimen>
+    <dimen name="minHeight">40dp</dimen>
+    <dimen name="resultsHeader">32sp</dimen>
+    <dimen name="resultMsg123">20sp</dimen>
+    <dimen name="resultScore">80sp</dimen>
+    <dimen name="resultButtonMargin">8dp</dimen>
+
+    <!-- This is a special one allowing for floating point values -->
+    <item name="resultMsgAlpha" format="float" type="dimen">0.5</item>
+
+    <dimen name="listViewItemPadding">4dp</dimen>
+    <dimen name="listViewItemImage">50dp</dimen>
+    <!--<dimen name="animDuration">400</dimen>-->
+</resources>
