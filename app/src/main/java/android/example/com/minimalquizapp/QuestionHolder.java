@@ -13,6 +13,8 @@ package android.example.com.minimalquizapp;
 
 
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.example.com.minimalquizapp.interfaces.BaseQuestion;
 import android.example.com.minimalquizapp.models.DualChoiceResponseQnA;
 import android.example.com.minimalquizapp.models.FreeTextResponseQnA;
@@ -28,40 +30,46 @@ import java.util.List;
 
 public class QuestionHolder {
     private static List<BaseQuestion> questions = new ArrayList<>();
+    private static Context context;
 
+    public static void setContext(Context c) {
+        context = c;
+    }
     public static List<BaseQuestion> getQuestions() {
+        if (context == null)
+            return null;
         String question;
         String answer;
         List<IntStringPair> answers;
 
         //Checkboxes
-        question = "What's 1+1 ?";
+        question = context.getString(R.string.q1);
         answers = new ArrayList<>();
-        answers.add(new IntStringPair(1, "2"));
-        answers.add(new IntStringPair(0, "11"));
-        answers.add(new IntStringPair(1, "0010"));
-        answers.add(new IntStringPair(0, "eleven"));
+        answers.add(new IntStringPair(1, context.getString(R.string.q1o1)));
+        answers.add(new IntStringPair(0, context.getString(R.string.q1o2)));
+        answers.add(new IntStringPair(1, context.getString(R.string.q1o3)));
+        answers.add(new IntStringPair(0, context.getString(R.string.q1o4)));
         questions.add(new MultipleResponseQnA(question, answers));
 
         //Free Text
-        question = "What is the Answer to the Ultimate Question of Life, The Universe, and Everything ?";
-        answer = "42";
+        question = context.getString(R.string.q2);
+        answer = context.getString(R.string.q2o1);
         questions.add(new FreeTextResponseQnA(question, answer));
 
         //RadioButtons
-        question = "The company that produces the iPad uses which Logo ?";
+        question = context.getString(R.string.q3);
         answers = new ArrayList<>();
-        answers.add(new IntStringPair(0, "Banana"));
-        answers.add(new IntStringPair(0, "Strawberry"));
-        answers.add(new IntStringPair(0, "Pine Apple"));
-        answers.add(new IntStringPair(1, "Apple"));
+        answers.add(new IntStringPair(0, context.getString(R.string.q3o1)));
+        answers.add(new IntStringPair(0, context.getString(R.string.q3o2)));
+        answers.add(new IntStringPair(0, context.getString(R.string.q3o3)));
+        answers.add(new IntStringPair(1, context.getString(R.string.q3o4)));
         questions.add(new MultipleChoiceQnA(question, answers));
 
         //RadioButtons
-        question = "Is the product of 1 and 1 equal to 2 ?";
+        question = context.getString(R.string.q4);
         answers = new ArrayList<>();
-        answers.add(new IntStringPair(0, "true"));
-        answers.add(new IntStringPair(1, "false"));
+        answers.add(new IntStringPair(0, context.getString(R.string.q4o1)));
+        answers.add(new IntStringPair(1, context.getString(R.string.q4o2)));
         questions.add(new DualChoiceResponseQnA(question, answers));
         return questions;
     }
